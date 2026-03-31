@@ -1,0 +1,19 @@
+version: '3'
+services:
+  backend:
+    image: rodrigobol/tp-mlops-back:latest
+    ports:
+      - "8080:5000"
+    environment:
+      - CURRENT_ENVIRONMENT=dev
+    volumes:
+      - ./logs:/app/logs
+
+  frontend:
+    image: rodrigobol/tp-mlops-front:latest
+    ports:
+      - "8081:80"
+    environment:
+      - WS_BACK_URL=http://localhost:8080
+    depends_on:
+      - backend

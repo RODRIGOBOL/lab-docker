@@ -1,0 +1,1 @@
+docker run -d -p 8081:80 --name front-service -e WS_BACK_URL=http://localhost:8080 rodrigobol/tp-mlops-front:latest
